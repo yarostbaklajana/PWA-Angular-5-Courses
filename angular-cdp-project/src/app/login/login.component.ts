@@ -7,15 +7,27 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  login = new FormControl('', [Validators.required]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.pattern(/^[A-Za-z]+\d+.*$/i),
+    Validators.min(8),
+  ]);
   loginForm: FormGroup = new FormGroup({
-    login: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    login: this.login,
+    password: this.password,
   });
 
   errors = {
-    login: "Required",
-    password: "Required"
-  }
+    login: {
+      required: 'Required'
+    },
+    password: {
+      required: 'Required',
+      pattern: 'Password must have at least one latin character and at list one digit',
+      min: 'Password must have at least 8 characters length'
+    }
+  };
 
   constructor() { }
 
@@ -23,8 +35,12 @@ export class LoginComponent implements OnInit {
 
   }
 
-  isError(fildName) {
-    return this.loginForm.get(fildName).touched && this.loginForm.get(fildName).invalid;
+  isError(field) {
+    return field.touched && field.invalid;
+  }
+
+  getErrorMessage(fieldName) {
+    return this.errors[fieldName][Object.keys(this.loginForm.get(fieldName).errors)[0]];
   }
 
   submit() {
