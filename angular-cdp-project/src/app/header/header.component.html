@@ -1,0 +1,10 @@
+<h1>
+  <a routerLink="/">LOGO</a>
+</h1>
+<div>
+  <button type="button" routerLink="/courses">Courses</button>
+</div>
+<div class="widgets">
+  <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+  <button *ngIf="isLoggedIn" type="button" (click)="logout()">Logout</button>
+</div>
