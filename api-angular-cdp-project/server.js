@@ -1,8 +1,9 @@
 const Koa = require('koa');
-var Router = require('koa-router');
+const Router = require('koa-router');
+const { db } = require('./db');
 
 const app = new Koa();
-var router = new Router();
+const router = new Router();
 
 router
   .get('/', (ctx, next) => {
@@ -10,6 +11,9 @@ router
   })
   .post('/courses', (ctx, next) => {
     ctx.body = 'Created World!';
+  })
+  .get('/courses/:id', (ctx, next) => {
+    ctx.body = 'Got course';
   })
   .put('/courses/:id', (ctx, next) => {
     ctx.body = 'Updated World!';
