@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../services/auth-service.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../services/auth-service.service';
 
 @Component({
   selector: 'header',
@@ -7,11 +7,17 @@ import { AuthService } from "../services/auth-service.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isSignedIn: boolean;
-  constructor(private _authService: AuthService) { }
+  isLoggedIn: boolean;
+
+  constructor(private _authService: AuthService) {
+  }
 
   ngOnInit() {
 
+    this.isLoggedIn = this._authService.isAutorized();
+    // this._authService.getUser().subscribe(userData => {
+    //   console.log(userData);
+    // });
   }
 
   logout() {

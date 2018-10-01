@@ -1,10 +1,10 @@
-<h1>
-  <a routerLink="/">LOGO</a>
+<h1 class="logo">
+  <a class="logo-link text-dark" routerLink="/">LOGO</a>
 </h1>
-<div>
-  <button type="button" routerLink="/courses">Courses</button>
+<div class="courses-btn__wrapper">
+  <button class="btn btn-outline-primary" type="button" routerLink="/courses">Courses</button>
 </div>
 <div class="widgets">
   <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
-  <button *ngIf="isLoggedIn" type="button" (click)="logout()">Logout</button>
+  <p-button label="Logout" *ngIf="isLoggedIn" type="button" (click)="logout()"></p-button>
 </div>
