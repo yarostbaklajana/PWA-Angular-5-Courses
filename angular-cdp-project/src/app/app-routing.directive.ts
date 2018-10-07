@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {CoursesComponent} from "./courses/courses.component";
 import {LoginComponent} from './login/login.component';
+import {OnlyAuthorizedUserAllowedGuardService} from './only-authorized-user-allowed-guard.service';
 
 export const appRoutes: Routes = [
 
@@ -12,7 +13,8 @@ export const appRoutes: Routes = [
   // },
   {
     path: 'courses',
-    component: CoursesComponent
+    component: CoursesComponent,
+    canActivate: [OnlyAuthorizedUserAllowedGuardService],
   },
   {
     path: '',

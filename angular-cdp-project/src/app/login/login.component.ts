@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {AuthService} from '../services/auth-service.service';
+import {Router} from '@angular/router';
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'login',
@@ -10,7 +13,7 @@ export class LoginComponent implements OnInit {
   login = new FormControl('', [Validators.required]);
   password = new FormControl('', [
     Validators.required,
-    Validators.pattern(/^[A-Za-z]+\d+.*$/i),
+    Validators.pattern(/^[A-Za-z]+\d+.*$/),
     Validators.min(8),
   ]);
   loginForm: FormGroup = new FormGroup({
@@ -29,7 +32,9 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private _authService: AuthService,
+              private _router: Router) {
+  }
 
   ngOnInit() {
 
@@ -45,6 +50,13 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log('submitted', this.loginForm);
+    this._authService.signIn({login: this.login.value, password: this.password.value})
+      .catch(err => {
+        console.log(err);
+      })
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
 }

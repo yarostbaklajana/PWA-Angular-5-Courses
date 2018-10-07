@@ -1,5 +1,5 @@
 const { User } = require('../../models/User');
 
-module.exports = (login, password) => {
-  return User.findOne({'login': login, 'password': password});
+module.exports = async (login, password) => {
+  return await User.findOne({login, password});
 };
