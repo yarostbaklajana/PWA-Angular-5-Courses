@@ -2,3 +2,4 @@
 **/node_modules/
 **/task-02/files
 *.log
+**/.idea/
