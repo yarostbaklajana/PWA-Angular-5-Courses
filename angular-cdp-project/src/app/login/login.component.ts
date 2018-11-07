@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth-service.service';
 import {Router} from '@angular/router';
-import 'rxjs/add/operator/catch';
+
 
 @Component({
   selector: 'login',
@@ -51,9 +51,6 @@ export class LoginComponent implements OnInit {
   submit() {
     console.log('submitted', this.loginForm);
     this._authService.signIn({login: this.login.value, password: this.password.value})
-      .catch(err => {
-        console.log(err);
-      })
       .subscribe(data => {
         console.log(data);
       });
