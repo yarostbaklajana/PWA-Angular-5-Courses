@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.courses-btn__wrapper {
+  margin-left: 20px;
+}
+
+.widgets {
+  margin-left: auto;
+}
