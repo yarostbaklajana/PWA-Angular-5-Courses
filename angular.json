@@ -8,10 +8,12 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "",
+
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
         }
+
       },
       "architect": {
         "build": {
