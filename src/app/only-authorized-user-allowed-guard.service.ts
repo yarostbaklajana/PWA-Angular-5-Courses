@@ -14,8 +14,8 @@ export class OnlyAuthorizedUserAllowedGuardService implements CanActivate {
     if (this._authService.getToken()) {
       return true;
     } else {
-      this._router.navigate(['/login'])
-      return false;
+      // this._router.navigate(['/login'])
+      // return false;
     }
   }
 }
