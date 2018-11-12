@@ -11,9 +11,9 @@ export class CoursesComponent implements OnInit {
   constructor(private _courses: CoursesService) { }
 
   ngOnInit() {
-    this._courses.getAll().subscribe((courses) => {
-      console.log(courses);
-    });
+    // this._courses.getAll().subscribe((courses) => {
+    //   console.log(courses);
+    // });
   }
 
   handleSearch(name) {

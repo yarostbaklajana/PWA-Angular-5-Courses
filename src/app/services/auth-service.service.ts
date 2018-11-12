@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   signIn(params) {
-    return this._http.get(`${this._apiRoot}/login`, { params });
+    //return this._http.get(`${this._apiRoot}/login`, { params });
   }
 
   signOut() {

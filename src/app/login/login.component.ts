@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log('submitted', this.loginForm);
-    this._authService.signIn({login: this.login.value, password: this.password.value})
-      .subscribe(data => {
-        console.log(data);
-      });
+    // this._authService.signIn({login: this.login.value, password: this.password.value})
+    //   .subscribe(data => {
+    //     console.log(data);
+    //   });
   }
 
 }
